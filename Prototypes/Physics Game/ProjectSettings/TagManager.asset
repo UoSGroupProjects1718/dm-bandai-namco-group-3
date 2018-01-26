@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Exploder2D
+  - Castle
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -14,11 +17,11 @@ TagManager:
   - 
   - 
   - OOB
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ignore Other Physics
+  - Ball
+  - Cannon
+  - No Bounce
+  - Castle Particles
   - 
   - 
   - 

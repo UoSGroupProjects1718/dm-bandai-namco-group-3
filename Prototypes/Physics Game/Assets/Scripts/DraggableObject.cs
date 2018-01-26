@@ -7,6 +7,12 @@ public class DraggableObject : MonoBehaviour, IDragHandler
     
     [SerializeField] private Collider2D _physicalCollider;
     [SerializeField] private LayerMask _outOfBoundsLayerMask;
+    [SerializeField] private Color _colour;
+
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().color = _colour;
+    }
         
     public void OnDrag(PointerEventData eventData)
     {
@@ -19,14 +25,20 @@ public class DraggableObject : MonoBehaviour, IDragHandler
 
         // Calculate the distance and direction of the desired movement.
         var heading = nextPosition - transform.position;
-        var distance = heading.magnitude + _physicalCollider.bounds.extents.magnitude;
+        var distance = _physicalCollider.bounds.extents.y + heading.magnitude;
         var direction = heading / distance;
 
         // Cast a ray in the movement direction to detect if it is out of bounds. If it isn't, move the object.
-        Debug.DrawLine(transform.position, transform.position + (direction * distance));
-        if(!Physics2D.Raycast(transform.position, direction, distance, _outOfBoundsLayerMask))
+        Debug.DrawRay(transform.position, transform.position + (direction * distance), Color.red);
+        
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, distance, _outOfBoundsLayerMask);
+        if (!raycastHit2D)
         {
             transform.position = nextPosition;
-        }       
+        }
+        else
+        {
+            Debug.LogFormat("Ray Collided With: \"{0}\".", raycastHit2D.collider.gameObject.name);
+        }
     }
 }

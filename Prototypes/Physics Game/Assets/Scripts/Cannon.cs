@@ -10,6 +10,11 @@ public class Cannon : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private bool _active;
 
+    [SerializeField] private AudioClip _aimingSound;
+    [SerializeField] private AudioClip _fireSound;
+    
+    private AudioSource _audioSource;
+
     private void Fire()
     {
         var ball = Instantiate(_ballPrefab, _ballSpawnPoint.position,  Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
@@ -18,13 +23,18 @@ public class Cannon : MonoBehaviour
 
     private void Update()
     {
+        _audioSource.pitch = _rotationSpeed * 4;
         GetComponent<Animator>().speed = _rotationSpeed;
     }
 
     private IEnumerator FireBalls()
     {
-        float slowTime = Random.Range(0.5f, 1.5f);
-        var swayTime = Random.Range(2.0f, 6.0f);
+        yield return new WaitForSeconds(2.5f);
+        GetComponent<Animator>().enabled = true;
+        _audioSource.clip = _aimingSound;
+        _audioSource.Play();
+        float slowTime = Random.Range(2.0f, 4.0f);
+        var swayTime = Random.Range(2.0f, 4.0f);
         yield return new WaitForSeconds(swayTime);
         
         var alpha = _rotationSpeed;
@@ -38,27 +48,21 @@ public class Cannon : MonoBehaviour
         
         GetComponent<Animator>().enabled = false;
         Fire();
-        
-//        yield return new WaitForSeconds(1.0f);
-//
-//        GetComponent<Animator>().enabled = true;
-//        alpha = _rotationSpeed;
-//        for (var t = 0.0f; t < 1.0f; t += Time.deltaTime / slowTime)
-//        {
-//            _rotationSpeed = Mathf.Lerp(alpha, 1.0f, t);
-//            yield return null;
-//        }
-//        
+
+        _audioSource.Stop();
+        _audioSource.clip = _fireSound;
+        _rotationSpeed = 1.0f;
+        _audioSource.Play();
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         GetComponent<Animator>().enabled = false;
         if (_active)
         {
             StartCoroutine(FireBalls());
-            GetComponent<Animator>().enabled = true;
         }
     }
     

@@ -7,13 +7,7 @@ public class DraggableObject : MonoBehaviour, IDragHandler
     
     [SerializeField] private Collider2D _physicalCollider;
     [SerializeField] private LayerMask _outOfBoundsLayerMask;
-    [SerializeField] private Color _colour;
 
-    private void Start()
-    {
-        GetComponent<SpriteRenderer>().color = _colour;
-    }
-        
     public void OnDrag(PointerEventData eventData)
     {
         // If the object is not flagged as draggable then do nothing.

@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 114418959083653054}
   - component: {fileID: 50978990543423448}
   - component: {fileID: 60427533526305278}
+  - component: {fileID: 114202576057682366}
+  - component: {fileID: 95509450515296042}
   m_Layer: 0
   m_Name: 45 Degree
   m_TagString: Untagged
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779050056190226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.86341, y: 34.01222, z: 0}
+  m_LocalPosition: {x: 33.26521, y: 17.947338, z: 0}
   m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +98,39 @@ PolygonCollider2D:
       - {x: 120.25, y: 93.00586}
       - {x: 120.25, y: 93.82788}
       - {x: 93.82788, y: 120.25}
+--- !u!95 &95509450515296042
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779050056190226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 97aaa568c1df8054cbab1aef01c39f11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114202576057682366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1779050056190226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90e2d899ed76424ca1d0bc917553b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Draggable: 0
+  _physicalCollider: {fileID: 60427533526305278}
+  _outOfBoundsLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &114418959083653054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,7 +232,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d52acd6bfb48199428e23cc7ab11d871, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

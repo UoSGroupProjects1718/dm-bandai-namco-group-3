@@ -16,20 +16,21 @@ public class TransitionManager : MonoBehaviour
         
     public bool ReadyForTransition { get; set; }
 
-    public void PrepareTransition()
+    public void PrepareSceneTransition(bool fadeMusic)
     {
-        StartCoroutine(FadeScreenAndMusic());
+        StartCoroutine(PrepareTransition(fadeMusic));
     }
     
-    private IEnumerator FadeScreenAndMusic()
+    private IEnumerator PrepareTransition(bool fadeMusic)
     {
         ReadyForTransition = false;
         
         FadeOut(FadeTimeDefault);
-        
-        var musicPlayer = MusicManager.getMusicPlayer();
-        musicPlayer.stopMusic(FadeTimeDefault);
-        
+        if (fadeMusic)
+        {
+            if(AudioManager.Instance != null)
+                AudioManager.Instance.Stop(FadeTimeDefault);
+        }
         yield return new WaitForSeconds(FadeTimeDefault);
 
         ReadyForTransition = true;

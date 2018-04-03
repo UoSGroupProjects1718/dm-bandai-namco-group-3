@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Exploder2D
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -13,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - OOB
+  - Fragment
+  - Bomb
+  - Cannon
+  - Vertical Borders
   - 
   - 
   - 

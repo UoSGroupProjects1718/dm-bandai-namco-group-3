@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     private const string TextBattleContinues = "THE BATTLE CONTINUES...";
     private const string TextWinRound = "WINS THE ROUND!";
     private const string TextWinBattle = "WINS THE BATTLE!";
+    private const string TextRound = "ROUND   ";
+    private const string TextFinalRound = "FINAL ROUND";
+    private const string TextRoundStart = "LET THE BATTLE BEGIN!";
 
     [Range(1, PlatformShapeVariations * PlatformMaterialVariations)] public int PlatformQuantityPerPlayer;
 
@@ -207,189 +210,222 @@ public class GameManager : MonoBehaviour
         
         yield return new WaitForSeconds(1.5f);
         
-//        // --- RED TEAM SETUP
-//        
-//        // PAN TO THE RED CASTLE
-//        cameraAnimator.PanToRedCastle();
-//        while (!cameraAnimator.IsComplete)
-//            yield return null;
-//
-//        // ZOOM IN RED TEAM TEXT
-//        
-//        txtHeading.SetText(TextTeamRed);
-//        txtHeading.SetColour(ColorTeamRed);
-//        
-//        txtHeading.ZoomIn();
-//        while (!txtHeading.IsComplete)
-//            yield return null;
-//        
-//        // ZOOM IN ARE YOU READY TEXT
-//        txtFooter.SetText(TextReadyCheck);
-//        txtFooter.SetColour(ColorDefault);
-//        
-//        txtFooter.ZoomIn();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//
-//        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
-//        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
-//
-//        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
-//        _acknowledgementReceived = false;
-//        while (!_acknowledgementReceived)
-//            yield return null;
-//        
-//        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
-//        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
-//                
-//        // ZOOM OUT THE TEXT
-//        txtHeading.ZoomOut();
-//        txtFooter.ZoomOut();
-//
-//        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
-//            yield return null;
-//
-//        // PAN BACK TO THE CENTER 
-//        cameraAnimator.PanFromRedCastle();
-//        while (!cameraAnimator.IsComplete)
-//            yield return null;
-//        
-//        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
-//        
-//        txtFooter.SetText(TextPreprareToBuild);
-//        txtFooter.SetColour(ColorDefault);
-//        
-//        txtFooter.ZoomIn();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//
-//        yield return new WaitForSeconds(1.5f);
-//        
-//        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
-//        txtFooter.ZoomOut();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//        
-//        // DROP DOWN THE PLATFORM SCROLL
-//        _scroll.DropdownPeak();
-//
-//        // WAIT FOR THE PLATFORMS TO BE PLACED
-//        while (_placedPlatforms.transform.childCount != PlatformQuantityPerPlayer)
-//            yield return null;
-//
-//        // HIDE THE PLATFORM SCROLL
-//        _scroll.ShowMaterialPanel();
-//        _scroll.Hide();
-//
-//        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
-//        _animRedDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
-//
-//        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
-//        _acknowledgementReceived = false;
-//        while (!_acknowledgementReceived)
-//            yield return null;
-//        
-//        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
-//        _animRedDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animRedDoneButton.GetCurrentAnimatorClipInfo(0).Length);
-//        
-//        // FADE OUT THE PLATFORMS
-//        foreach (Transform child in _placedPlatforms.transform)
-//            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeOut);
-//        
-//        // -- BLUE TEAM SETUP
-//
-//        ActivePlayer = _blueTeam;
-//
-//        // PAN TO THE BLUE CASTLE
-//        cameraAnimator.PanToBlueCastle();
-//        while (!cameraAnimator.IsComplete)
-//            yield return null;     
-//        
-//        // ZOOM IN BLUE TEAM TEXT
-//        
-//        txtHeading.SetText(TextTeamBlue);
-//        txtHeading.SetColour(ColorTeamBlue);
-//        
-//        txtHeading.ZoomIn();
-//        while (!txtHeading.IsComplete)
-//            yield return null;
-//        
-//        // ZOOM IN ARE YOU READY TEXT
-//        txtFooter.SetText(TextReadyCheck);
-//        txtFooter.SetColour(ColorDefault);
-//        
-//        txtFooter.ZoomIn();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//        
-//        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
-//        _animBlueAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
-//
-//        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
-//        _acknowledgementReceived = false;
-//        while (!_acknowledgementReceived)
-//            yield return null;
-//        
-//        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
-//        _animBlueAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animBlueAckButton.GetCurrentAnimatorClipInfo(0).Length);
-//
-//        // ZOOM OUT THE TEXT
-//        txtHeading.ZoomOut();
-//        txtFooter.ZoomOut();
-//
-//        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
-//            yield return null;
-//        
-//        // PAN TO THE CENTER
-//        cameraAnimator.PanFromBlueCastle();
-//        while (!cameraAnimator.IsComplete)
-//            yield return null;
-//        
-//        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
-//        
-//        txtFooter.SetText(TextPreprareToBuild);
-//        txtFooter.SetColour(ColorDefault);
-//        
-//        txtFooter.ZoomIn();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//
-//        yield return new WaitForSeconds(1.5f);
-//        
-//        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
-//        txtFooter.ZoomOut();
-//        while (!txtFooter.IsComplete)
-//            yield return null;
-//
-//        // DROP DOWN THE PLATFORM SCROLL
-//        _scroll.DropdownPeak();
-//
-//        // WAIT FOR THE PLATFORMS TO BE PLACED
-//        while (_placedPlatforms.transform.childCount != PlatformQuantityPerPlayer * 2)
-//            yield return null;
-//
-//        // HIDE THE PLATFORM SCROLL
-//        _scroll.ShowMaterialPanel();
-//        _scroll.Hide();
-//
-//        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
-//        _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
-//
-//        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
-//        _acknowledgementReceived = false;
-//        while (!_acknowledgementReceived)
-//            yield return null;
-//        
-//        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
-//        _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
-//        
-//        // FADE IN THE PLATFORMS
-//        foreach (Transform child in _placedPlatforms.transform)
-//        {
-//            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeIn);
-//        }
+        // DISPLAY ROUND NUMBERS
+
+        if (_scoreBoard.GetRedScore() == 1 && _scoreBoard.GetBlueScore() == 1)
+        {
+            txtHeading.SetText(TextFinalRound);
+        }
+        else
+        {
+            txtHeading.SetText(TextRound + (_scoreBoard.GetBlueScore() + _scoreBoard.GetRedScore() + 1));
+        }
+        
+        txtHeading.SetColour(ColorDefault);
+        
+        txtFooter.SetText("\n" + TextRoundStart);
+        txtFooter.SetColour(ColorDefault);
+        
+        txtHeading.ZoomIn();
+        while (!txtHeading.IsComplete)
+            yield return null;
+        
+        txtFooter.ZoomIn();
+        while (!txtFooter.IsComplete)
+            yield return null;
+        
+        yield return new WaitForSeconds(1.5f);
+        
+        txtHeading.ZoomOut();
+        txtFooter.ZoomOut();
+        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+            yield return null;
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        // --- RED TEAM SETUP
+        
+        // PAN TO THE RED CASTLE
+        cameraAnimator.PanToRedCastle();
+        while (!cameraAnimator.IsComplete)
+            yield return null;
+
+        // ZOOM IN RED TEAM TEXT
+        
+        txtHeading.SetText(TextTeamRed);
+        txtHeading.SetColour(ColorTeamRed);
+        
+        txtHeading.ZoomIn();
+        while (!txtHeading.IsComplete)
+            yield return null;
+        
+        // ZOOM IN ARE YOU READY TEXT
+        txtFooter.SetText(TextReadyCheck);
+        txtFooter.SetColour(ColorDefault);
+        
+        txtFooter.ZoomIn();
+        while (!txtFooter.IsComplete)
+            yield return null;
+
+        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
+        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
+
+        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
+        _acknowledgementReceived = false;
+        while (!_acknowledgementReceived)
+            yield return null;
+        
+        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
+        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
+                
+        // ZOOM OUT THE TEXT
+        txtHeading.ZoomOut();
+        txtFooter.ZoomOut();
+
+        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+            yield return null;
+
+        // PAN BACK TO THE CENTER 
+        cameraAnimator.PanFromRedCastle();
+        while (!cameraAnimator.IsComplete)
+            yield return null;
+        
+        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
+        
+        txtFooter.SetText(TextPreprareToBuild);
+        txtFooter.SetColour(ColorDefault);
+        
+        txtFooter.ZoomIn();
+        while (!txtFooter.IsComplete)
+            yield return null;
+
+        yield return new WaitForSeconds(1.5f);
+        
+        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
+        txtFooter.ZoomOut();
+        while (!txtFooter.IsComplete)
+            yield return null;
+        
+        // DROP DOWN THE PLATFORM SCROLL
+        _scroll.DropdownPeak();
+
+        // WAIT FOR THE PLATFORMS TO BE PLACED
+        while (_placedPlatforms.transform.childCount != PlatformQuantityPerPlayer)
+            yield return null;
+
+        // HIDE THE PLATFORM SCROLL
+        _scroll.ShowMaterialPanel();
+        _scroll.Hide();
+
+        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
+        _animRedDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
+
+        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
+        _acknowledgementReceived = false;
+        while (!_acknowledgementReceived)
+            yield return null;
+        
+        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
+        _animRedDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
+        yield return new WaitForSeconds(_animRedDoneButton.GetCurrentAnimatorClipInfo(0).Length);
+        
+        // FADE OUT THE PLATFORMS
+        foreach (Transform child in _placedPlatforms.transform)
+            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeOut);
+        
+        // -- BLUE TEAM SETUP
+
+        ActivePlayer = _blueTeam;
+
+        // PAN TO THE BLUE CASTLE
+        cameraAnimator.PanToBlueCastle();
+        while (!cameraAnimator.IsComplete)
+            yield return null;     
+        
+        // ZOOM IN BLUE TEAM TEXT
+        
+        txtHeading.SetText(TextTeamBlue);
+        txtHeading.SetColour(ColorTeamBlue);
+        
+        txtHeading.ZoomIn();
+        while (!txtHeading.IsComplete)
+            yield return null;
+        
+        // ZOOM IN ARE YOU READY TEXT
+        txtFooter.SetText(TextReadyCheck);
+        txtFooter.SetColour(ColorDefault);
+        
+        txtFooter.ZoomIn();
+        while (!txtFooter.IsComplete)
+            yield return null;
+        
+        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
+        _animBlueAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
+
+        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
+        _acknowledgementReceived = false;
+        while (!_acknowledgementReceived)
+            yield return null;
+        
+        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
+        _animBlueAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
+        yield return new WaitForSeconds(_animBlueAckButton.GetCurrentAnimatorClipInfo(0).Length);
+
+        // ZOOM OUT THE TEXT
+        txtHeading.ZoomOut();
+        txtFooter.ZoomOut();
+
+        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+            yield return null;
+        
+        // PAN TO THE CENTER
+        cameraAnimator.PanFromBlueCastle();
+        while (!cameraAnimator.IsComplete)
+            yield return null;
+        
+        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
+        
+        txtFooter.SetText(TextPreprareToBuild);
+        txtFooter.SetColour(ColorDefault);
+        
+        txtFooter.ZoomIn();
+        while (!txtFooter.IsComplete)
+            yield return null;
+
+        yield return new WaitForSeconds(1.5f);
+        
+        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
+        txtFooter.ZoomOut();
+        while (!txtFooter.IsComplete)
+            yield return null;
+
+        // DROP DOWN THE PLATFORM SCROLL
+        _scroll.DropdownPeak();
+
+        // WAIT FOR THE PLATFORMS TO BE PLACED
+        while (_placedPlatforms.transform.childCount != PlatformQuantityPerPlayer * 2)
+            yield return null;
+
+        // HIDE THE PLATFORM SCROLL
+        _scroll.ShowMaterialPanel();
+        _scroll.Hide();
+
+        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
+        _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
+
+        // WAIT FOR THE ACKNOWLEDGEMENT BUTTON TO BE PRESSED
+        _acknowledgementReceived = false;
+        while (!_acknowledgementReceived)
+            yield return null;
+        
+        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
+        _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
+        
+        // FADE IN THE PLATFORMS
+        foreach (Transform child in _placedPlatforms.transform)
+        {
+            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeIn);
+        }
 
         // FIRE CANNON
         
@@ -502,33 +538,41 @@ public class GameManager : MonoBehaviour
 
         if (redScore != 2 && blueScore != 2)
         {
-            _bottomText.text = TextBattleContinues;
-            _bottomText.color = ColorDefault;
+            txtFooter.SetText(TextBattleContinues);
+            txtFooter.SetColour(ColorDefault);
+            
+            txtFooter.ZoomIn();
+            while (!txtFooter.IsComplete)
+                yield return null;
         }
         else
         {
             if (redScore == 2)
             {
-                _topText.text = TextTeamRed;
-                _topText.color = ColorTeamRed;
+                txtHeading.SetText(TextTeamRed);
+                txtHeading.SetColour(ColorTeamRed);
             }
             else
             {
-                _topText.text = TextTeamBlue;
-                _topText.color = ColorTeamBlue;
+                txtHeading.SetText(TextTeamBlue);
+                txtHeading.SetColour(ColorTeamBlue);
             }
 
-            _bottomText.text = TextWinBattle;
-            _bottomText.color = ColorDefault;
+            txtFooter.SetText(TextWinBattle);
+            txtFooter.SetColour(ColorDefault);
+            
+            txtHeading.ZoomIn();
+            while (!txtHeading.IsComplete)
+                yield return null;
+            
+            txtFooter.ZoomIn();
+            while (!txtFooter.IsComplete)
+                yield return null;
         }
         
-        if(redScore == 2 || blueScore == 2)
-            _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-        else 
-            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
         
-        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
-
+        yield return new WaitForSeconds(1.5f);
+        
         var transitionManager = Camera.main.GetComponent<TransitionManager>();
         transitionManager.PrepareSceneTransition(false);
         while (!transitionManager.ReadyForTransition)

@@ -12,7 +12,12 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] private AudioClip _aimingSound;
     [SerializeField] private AudioClip _fireSound;
-    
+
+    [SerializeField] private Rigidbody2D _frontWheel;
+    [SerializeField] private Rigidbody2D _backWheel;
+
+    [SerializeField] private LayerMask _postFireLayer;
+
     private AudioSource _audioSource;
 
     private void Fire()
@@ -34,7 +39,6 @@ public class Cannon : MonoBehaviour
 
     private IEnumerator FireBalls()
     {
-        yield return new WaitForSeconds(2.5f);
         GetComponent<Animator>().enabled = true;
         _audioSource.clip = _aimingSound;
         _audioSource.Play();

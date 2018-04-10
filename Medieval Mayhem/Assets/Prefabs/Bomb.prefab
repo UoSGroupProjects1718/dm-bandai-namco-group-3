@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86089fd60d0101409bf8a79ef4916a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxVelocity: {x: 999, y: 999}
-  _maxRotationSpeed: 99999
+  _maxVelocity: {x: 1e+10, y: 1e+15}
+  _maxRotationSpeed: 1e+21
   _castleExplodeSound: {fileID: 0}
   _hitSound: {fileID: 0}
 --- !u!198 &198545883600874348

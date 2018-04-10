@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Stone
   Strength: 2147483647
-  Bounciness: 0
+  Bounciness: 0.4
   Friction: 0
   HitSound: {fileID: 8300000, guid: ba19ac55904f40a41b94371b91580bbd, type: 3}
   BreakSound: {fileID: 0}

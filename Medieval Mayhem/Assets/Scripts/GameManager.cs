@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Exploder2D;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,7 +31,19 @@ public class GameManager : MonoBehaviour
     
     private const int PlatformShapeVariations = 4;
     private const int PlatformMaterialVariations = 3;
+
+    private static readonly Color ColorDefault = Color.black;
+    private static readonly Color ColorTeamRed = new Color(255.0f / 255.0f, 77.0f / 255.0f, 77.0f / 255.0f);
+    private static readonly Color ColorTeamBlue = new Color(0.0f / 255.0f, 157.0f / 225.0f, 220.0f / 255.0f);
     
+    private const string TextTeamRed = "RED TEAM";
+    private const string TextTeamBlue = "BLUE TEAM";
+    private const string TextReadyCheck = "ARE YOU READY?";
+    private const string TextPreprareToBuild = "PREPARE YOUR DEFENCES!";
+    private const string TextBattleContinues = "THE BATTLE CONTINUES...";
+    private const string TextWinRound = "WINS THE ROUND!";
+    private const string TextWinBattle = "WINS THE BATTLE!";
+
     [Range(1, PlatformShapeVariations * PlatformMaterialVariations)] public int PlatformQuantityPerPlayer;
 
     [Range(1, PlatformShapeVariations)] public int StoneQuantityMax;
@@ -133,6 +146,7 @@ public class GameManager : MonoBehaviour
                         {
                             woodQuantity++;
                             platformQuantityLeft--;
+        
                         }
                         break;
                     case 2:
@@ -182,27 +196,41 @@ public class GameManager : MonoBehaviour
         if(_scoreBoard.GetBlueScore() == 1)
             _blueFlag1.Show(); 
         
+        var cameraAnimator = gameObject.AddComponent<CameraPanTask>();
+        cameraAnimator.SetAnimator(_cameraAnimator);
+
+        var txtHeading = gameObject.AddComponent<TextTask>();
+        txtHeading.SetTextAndAnimator(_topText, _animTopText);
+
+        var txtFooter = gameObject.AddComponent<TextTask>();
+        txtFooter.SetTextAndAnimator(_bottomText, _animBottomText);
+        
+        yield return new WaitForSeconds(1.5f);
         
 //        // --- RED TEAM SETUP
 //        
-//        // PAN TO RED CASTLE
-//        _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateFocusRed);
-//        yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
-//        
+//        // PAN TO THE RED CASTLE
+//        cameraAnimator.PanToRedCastle();
+//        while (!cameraAnimator.IsComplete)
+//            yield return null;
+//
 //        // ZOOM IN RED TEAM TEXT
-//        _topText.text = "RED TEAM";
-//        _topText.color = new Color(255.0f / 255.0f, 77.0f / 255.0f, 77.0f / 255.0f);
 //        
-//        _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtHeading.SetText(TextTeamRed);
+//        txtHeading.SetColour(ColorTeamRed);
+//        
+//        txtHeading.ZoomIn();
+//        while (!txtHeading.IsComplete)
+//            yield return null;
 //        
 //        // ZOOM IN ARE YOU READY TEXT
-//        _bottomText.text = "ARE YOU READY?";
-//        _bottomText.color = Color.black;
+//        txtFooter.SetText(TextReadyCheck);
+//        txtFooter.SetColour(ColorDefault);
 //        
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
-//        
+//        txtFooter.ZoomIn();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
+//
 //        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
 //        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
 //
@@ -215,27 +243,33 @@ public class GameManager : MonoBehaviour
 //        _animRedAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
 //                
 //        // ZOOM OUT THE TEXT
-//        _animTopText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
-//        
-//        // PAN THE CAMERA BACK TO THE CENTER
-//        _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateReturnRed);
-//        yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+//        txtHeading.ZoomOut();
+//        txtFooter.ZoomOut();
+//
+//        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+//            yield return null;
+//
+//        // PAN BACK TO THE CENTER 
+//        cameraAnimator.PanFromRedCastle();
+//        while (!cameraAnimator.IsComplete)
+//            yield return null;
 //        
 //        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
-//        _bottomText.text = "BUILD YOUR DEFENCES!";
-//        _bottomText.color = Color.black;
 //        
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtFooter.SetText(TextPreprareToBuild);
+//        txtFooter.SetColour(ColorDefault);
+//        
+//        txtFooter.ZoomIn();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
 //
 //        yield return new WaitForSeconds(1.5f);
 //        
 //        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
-//
+//        txtFooter.ZoomOut();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
+//        
 //        // DROP DOWN THE PLATFORM SCROLL
 //        _scroll.DropdownPeak();
 //
@@ -261,31 +295,33 @@ public class GameManager : MonoBehaviour
 //        
 //        // FADE OUT THE PLATFORMS
 //        foreach (Transform child in _placedPlatforms.transform)
-//        {
 //            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeOut);
-//        }
 //        
 //        // -- BLUE TEAM SETUP
 //
 //        ActivePlayer = _blueTeam;
-//        
-//        // PAN TO BLUE CASTLE
-//        _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateFocusBlue);
-//        yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+//
+//        // PAN TO THE BLUE CASTLE
+//        cameraAnimator.PanToBlueCastle();
+//        while (!cameraAnimator.IsComplete)
+//            yield return null;     
 //        
 //        // ZOOM IN BLUE TEAM TEXT
-//        _topText.text = "BLUE TEAM";
-//        _topText.color = new Color(0.0f / 255.0f, 157.0f / 255.0f, 220.0f / 255.0f);
 //        
-//        _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtHeading.SetText(TextTeamBlue);
+//        txtHeading.SetColour(ColorTeamBlue);
+//        
+//        txtHeading.ZoomIn();
+//        while (!txtHeading.IsComplete)
+//            yield return null;
 //        
 //        // ZOOM IN ARE YOU READY TEXT
-//        _bottomText.text = "ARE YOU READY?";
-//        _bottomText.color = Color.black;
+//        txtFooter.SetText(TextReadyCheck);
+//        txtFooter.SetColour(ColorDefault);
 //        
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtFooter.ZoomIn();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
 //        
 //        // ZOOM IN THE ACKNOWLEDGEMENT BUTTON
 //        _animBlueAckButton.SetInteger(BtnAnimState, BtnAnimStateZoomIn);
@@ -300,26 +336,32 @@ public class GameManager : MonoBehaviour
 //        yield return new WaitForSeconds(_animBlueAckButton.GetCurrentAnimatorClipInfo(0).Length);
 //
 //        // ZOOM OUT THE TEXT
-//        _animTopText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtHeading.ZoomOut();
+//        txtFooter.ZoomOut();
+//
+//        while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+//            yield return null;
 //        
-//        // PAN THE CAMERA BACK TO THE CENTER
-//        _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateReturnBlue);
-//        yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+//        // PAN TO THE CENTER
+//        cameraAnimator.PanFromBlueCastle();
+//        while (!cameraAnimator.IsComplete)
+//            yield return null;
 //        
 //        // ZOOM IN THE BUILD YOUR DEFENCES TEXT
-//        _bottomText.text = "BUILD YOUR DEFENCES!";
-//        _bottomText.color = Color.black;
 //        
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtFooter.SetText(TextPreprareToBuild);
+//        txtFooter.SetColour(ColorDefault);
+//        
+//        txtFooter.ZoomIn();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
 //
 //        yield return new WaitForSeconds(1.5f);
 //        
 //        // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
-//        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-//        yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
+//        txtFooter.ZoomOut();
+//        while (!txtFooter.IsComplete)
+//            yield return null;
 //
 //        // DROP DOWN THE PLATFORM SCROLL
 //        _scroll.DropdownPeak();
@@ -342,19 +384,26 @@ public class GameManager : MonoBehaviour
 //        
 //        // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
 //        _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
+//        
+//        // FADE IN THE PLATFORMS
+//        foreach (Transform child in _placedPlatforms.transform)
+//        {
+//            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeIn);
+//        }
+
+        // FIRE CANNON
         
-        // FADE IN THE PLATFORMS
-        foreach (Transform child in _placedPlatforms.transform)
-        {
-            child.GetComponent<Animator>().SetInteger(PlatformAnimState, PlatformAnimStateFadeIn);
-        }
-        
-//        _cannonObject.SetActive(true);
-//        var gameObject = _cannonObject.GetComponentInChildren(typeof(Cannon));
-//        ((Cannon) gameObject).Active = true;
+        _cannonObject.SetActive(true);
+        var cannon = _cannonObject.GetComponentInChildren(typeof(Cannon));
+        ((Cannon) cannon).Active = true;
 
         while (!_redCastle.Exploded && !_blueCastle.Exploded) 
             yield return null;
+        
+        foreach (Transform child in _placedPlatforms.transform)
+        {
+            child.GetComponent<Exploder2DObject>().Explode();
+        }
         
         yield return new WaitForSeconds(1.0f);
 
@@ -364,22 +413,24 @@ public class GameManager : MonoBehaviour
             _scoreBoard.SetRedScore(_scoreBoard.GetRedScore() + 1);
             
             // PAN TO RED CASTLE
-            _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateFocusRed);
-            yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+            cameraAnimator.PanToRedCastle();
+            while (!cameraAnimator.IsComplete)
+                yield return null;
             
             // ZOOM IN RED TEAM TEXT
-            _topText.text = "RED TEAM";
-            _topText.color = new Color(255.0f / 255.0f, 77.0f / 255.0f, 77.0f / 255.0f);
-            
-            _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
+            txtHeading.SetText(TextTeamRed);
+            txtHeading.SetColour(ColorTeamRed);
+            txtHeading.ZoomIn();
             
             // ZOOM IN WINS TEXT
-            _bottomText.text = "WINS THE ROUND!";
-            _bottomText.color = Color.black;
+            txtFooter.SetText(TextWinRound);
+            txtFooter.SetColour(ColorDefault);
+            txtFooter.ZoomIn();
+
+            while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+                yield return null;
             
-            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-            
-            yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
             
             if(_scoreBoard.GetRedScore() == 1)
                 _redFlag1.Rise();
@@ -389,14 +440,16 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
             
             // ZOOM OUT THE TEXT
-            _animTopText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-            
-            yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
+            txtHeading.ZoomOut();
+            txtFooter.ZoomOut();
+
+            while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+                yield return null;
             
             // PAN THE CAMERA BACK TO THE CENTER
-            _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateReturnRed);
-            yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            cameraAnimator.PanFromRedCastle();
+            while (!cameraAnimator.IsComplete)
+                yield return null;
             
         }
         else
@@ -405,22 +458,24 @@ public class GameManager : MonoBehaviour
             _scoreBoard.SetBlueScore(_scoreBoard.GetBlueScore() + 1);
             
             // PAN TO BLUE CASTLE
-            _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateFocusBlue);
-            yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+
+            cameraAnimator.PanToBlueCastle();
+            while (!cameraAnimator.IsComplete)
+                yield return null;
             
             // ZOOM IN BLUE TEAM TEXT
-            _topText.text = "BLUE TEAM";
-            _topText.color = new Color(0.0f / 255.0f, 157.0f / 255.0f, 220.0f / 255.0f);
-            
-            _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
+            txtHeading.SetText(TextTeamBlue);
+            txtHeading.SetColour(ColorTeamBlue);
+            txtHeading.ZoomIn();
             
             // ZOOM IN WINS TEXT
-            _bottomText.text = "WINS THE ROUND!";
-            _bottomText.color = Color.black;
+            txtFooter.SetText(TextWinRound);
+            txtFooter.SetColour(ColorDefault);
+            txtFooter.ZoomIn();
+
+            while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+                yield return null;
             
-            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
-            
-            yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
             
             if(_scoreBoard.GetBlueScore() == 1)
                 _blueFlag1.Rise();
@@ -430,14 +485,16 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
             
             // ZOOM OUT THE TEXT
-            _animTopText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomOut);
-            
-            yield return new WaitForSeconds(_animTopText.GetCurrentAnimatorClipInfo(0).Length);
+            txtHeading.ZoomOut();
+            txtFooter.ZoomOut();
+
+            while (!txtHeading.IsComplete && !txtFooter.IsComplete)
+                yield return null;
             
             // PAN THE CAMERA BACK TO THE CENTER
-            _cameraAnimator.SetInteger(CameraAnimState, CameraAnimStateReturnBlue);
-            yield return new WaitForSeconds(_cameraAnimator.GetCurrentAnimatorClipInfo(0).Length);
+            cameraAnimator.PanFromBlueCastle();
+            while (!cameraAnimator.IsComplete)
+                yield return null;
         }
 
         var redScore = _scoreBoard.GetRedScore();
@@ -445,30 +502,31 @@ public class GameManager : MonoBehaviour
 
         if (redScore != 2 && blueScore != 2)
         {
-            _bottomText.text = "THE BATTLE CONTINUES...";
-            _bottomText.color = Color.black;
+            _bottomText.text = TextBattleContinues;
+            _bottomText.color = ColorDefault;
         }
         else
         {
             if (redScore == 2)
             {
-                _topText.text = "RED TEAM";
-                _topText.color = new Color(255.0f / 255.0f, 77.0f / 255.0f, 77.0f / 255.0f);
+                _topText.text = TextTeamRed;
+                _topText.color = ColorTeamRed;
             }
             else
             {
-                _topText.text = "BLUE TEAM";
-                _topText.color = new Color(0.0f / 255.0f, 157.0f / 255.0f, 220.0f / 255.0f);
+                _topText.text = TextTeamBlue;
+                _topText.color = ColorTeamBlue;
             }
 
-            _bottomText.text = "WINS THE WAR!";
-            _bottomText.color = Color.black;
+            _bottomText.text = TextWinBattle;
+            _bottomText.color = ColorDefault;
         }
         
         if(redScore == 2 || blueScore == 2)
             _animTopText.SetInteger(TextAnimState, TextAnimStateZoomIn);
+        else 
+            _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
         
-        _animBottomText.SetInteger(TextAnimState, TextAnimStateZoomIn);
         yield return new WaitForSeconds(_animBottomText.GetCurrentAnimatorClipInfo(0).Length);
 
         var transitionManager = Camera.main.GetComponent<TransitionManager>();

@@ -36,17 +36,16 @@ public class Bomb : MonoBehaviour
                 
         Debug.LogFormat("Velocity: ({0}, {1})", _rigidbody2D.velocity.x, _rigidbody2D.velocity.y);
         Debug.LogFormat("Angular velocity: ({0})", _rigidbody2D.angularVelocity);
-        Debug.ClearDeveloperConsole();
     }
 
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
         _audioSource.PlayOneShot(_hitSound);
-        if (collision2D.gameObject.CompareTag(Castle.Tag))
-        {
-            //_audioSource.Stop();
-            AudioSource.PlayClipAtPoint(_castleExplodeSound, Vector3.zero, 1.5f);
-            Destroy(gameObject);
-        }
+//        if (collision2D.gameObject.CompareTag(Castle.Tag))
+//        {
+//            //_audioSource.Stop();
+//            AudioSource.PlayClipAtPoint(_castleExplodeSound, Vector3.zero, 1.5f);
+//            Destroy(gameObject);
+//        }
     }
 }

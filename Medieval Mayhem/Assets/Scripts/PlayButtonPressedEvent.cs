@@ -13,6 +13,8 @@ public class PlayButtonPressedEvent : ButtonPressedEvent {
 
 	private static IEnumerator TransitionToLoadingScene()
 	{
+		ScoreBoard scoreBoard = new ScoreBoard();
+		scoreBoard.ResetScores();
 		var transitionManager = Camera.main.GetComponent<TransitionManager>();
 		transitionManager.PrepareSceneTransition(false);
 		while (!transitionManager.ReadyForTransition)

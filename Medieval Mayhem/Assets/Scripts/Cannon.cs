@@ -13,11 +13,6 @@ public class Cannon : MonoBehaviour
     [SerializeField] private AudioClip _aimingSound;
     [SerializeField] private AudioClip _fireSound;
 
-    [SerializeField] private Rigidbody2D _frontWheel;
-    [SerializeField] private Rigidbody2D _backWheel;
-
-    [SerializeField] private LayerMask _postFireLayer;
-
     private AudioSource _audioSource;
 
     private void Fire()
@@ -43,6 +38,7 @@ public class Cannon : MonoBehaviour
         _audioSource.clip = _aimingSound;
         _audioSource.Play();
         float slowTime = Random.Range(2.0f, 4.0f);
+        
         var swayTime = Random.Range(2.0f, 4.0f);
         yield return new WaitForSeconds(swayTime);
         

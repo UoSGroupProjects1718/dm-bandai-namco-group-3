@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114055206782113774}
   - component: {fileID: 114221530276956646}
   - component: {fileID: 95073328513281524}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stone Cross Shape Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

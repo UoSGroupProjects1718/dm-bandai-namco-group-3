@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114734895812890916}
   - component: {fileID: 114360927151187548}
   - component: {fileID: 95321276244351360}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stone Cross Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

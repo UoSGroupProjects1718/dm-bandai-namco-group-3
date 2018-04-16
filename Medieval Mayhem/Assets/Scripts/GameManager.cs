@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private Scroll _scroll;
 
-    [SerializeField] private GameObject _cannonObject;
+    [SerializeField] private CannonManager _cannonManager;
 
     [SerializeField] private bool _acknowledgementReceived;
 
@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Flag _blueFlag1;
     [SerializeField] private Flag _blueFlag2;
+
+    [SerializeField] private AudioClip _sfxVictory;
 
     private bool gameActive;
 
@@ -186,7 +188,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Play()
     {
-
         // SHOW SCORE FLAGS IF APPLICABLE
 
         if (_scoreBoard.GetRedScore() >= 2 || _scoreBoard.GetBlueScore() >= 2)
@@ -429,9 +430,10 @@ public class GameManager : MonoBehaviour
 
         // FIRE CANNON
         
-        _cannonObject.SetActive(true);
-        var cannon = _cannonObject.GetComponentInChildren(typeof(Cannon));
-        ((Cannon) cannon).Active = true;
+        if(AudioManager.Instance != null)
+            AudioManager.Instance.Stop();
+        
+        _cannonManager.Fire();
 
         while (!_redCastle.Exploded && !_blueCastle.Exploded) 
             yield return null;
@@ -453,7 +455,10 @@ public class GameManager : MonoBehaviour
             cameraAnimator.PanToRedCastle();
             while (!cameraAnimator.IsComplete)
                 yield return null;
-            
+
+            if (AudioManager.Instance != null) 
+                AudioManager.Instance.Play(_sfxVictory, 0.0f);
+
             // ZOOM IN RED TEAM TEXT
             txtHeading.SetText(TextTeamRed);
             txtHeading.SetColour(ColorTeamRed);
@@ -498,7 +503,10 @@ public class GameManager : MonoBehaviour
             cameraAnimator.PanToBlueCastle();
             while (!cameraAnimator.IsComplete)
                 yield return null;
-            
+
+            if (AudioManager.Instance != null) 
+                AudioManager.Instance.Play(_sfxVictory, 0.0f);
+
             // ZOOM IN BLUE TEAM TEXT
             txtHeading.SetText(TextTeamBlue);
             txtHeading.SetColour(ColorTeamBlue);

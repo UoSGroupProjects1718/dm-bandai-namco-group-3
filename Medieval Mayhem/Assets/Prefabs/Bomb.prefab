@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 58334748094516736}
   - component: {fileID: 50643863642905718}
   - component: {fileID: 114745695159739084}
-  - component: {fileID: 61419958998467862}
-  - component: {fileID: 61825877410819426}
+  - component: {fileID: 82411623763151088}
+  - component: {fileID: 61109163415293068}
   m_Layer: 10
   m_Name: Bomb
   m_TagString: Bomb
@@ -55,14 +55,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262499138472860}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.664563, y: -2.566495, z: 0.03100206}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2164396, w: 0.97629607}
+  m_LocalPosition: {x: -2.62, y: 1.09, z: 0.03100206}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 4544326304769984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25}
 --- !u!4 &4544326304769984
 Transform:
   m_ObjectHideFlags: 1
@@ -111,7 +111,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
   m_Radius: 0.33
---- !u!61 &61419958998467862
+--- !u!61 &61109163415293068
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -119,11 +119,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1262499138472860}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 247b6cfe920c0ab42be482f5a46fb9d7, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0118921995, y: 0.2622478}
+  m_Offset: {x: -0.009542583, y: 0.3246733}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,33 +134,88 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14484811, y: 0.10928106}
+  m_Size: {x: 0.13904369, y: 0.20065343}
   m_EdgeRadius: 0
---- !u!61 &61825877410819426
-BoxCollider2D:
+--- !u!82 &82411623763151088
+AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1262499138472860}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 247b6cfe920c0ab42be482f5a46fb9d7, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0091894865, y: 0.3704919}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.85}
-    newSize: {x: 0.64, y: 0.85}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.083224535, y: 0.10901624}
-  m_EdgeRadius: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3c3c390812919fb4492ab9787f00188c, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114745695159739084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,10 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86089fd60d0101409bf8a79ef4916a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxVelocity: {x: 5000, y: 5000}
-  _maxRotationSpeed: 5000
-  _castleExplodeSound: {fileID: 0}
-  _hitSound: {fileID: 0}
+  _maxVelocity: {x: 40, y: 40}
+  _maxRotationSpeed: 250
+  _hitSound: {fileID: 8300000, guid: 88e281b53469ddf4499747569e1b1c85, type: 3}
+  _sfxTenseMusic: {fileID: 8300000, guid: 3c3c390812919fb4492ab9787f00188c, type: 3}
 --- !u!198 &198545883600874348
 ParticleSystem:
   m_ObjectHideFlags: 1

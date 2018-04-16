@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114837502648040374}
   - component: {fileID: 114576882875392370}
   - component: {fileID: 95515414083642934}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Glass Line Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

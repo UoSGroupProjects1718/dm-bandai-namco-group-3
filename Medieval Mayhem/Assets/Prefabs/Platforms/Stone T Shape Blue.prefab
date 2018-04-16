@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114386098333926476}
   - component: {fileID: 114950149521187004}
   - component: {fileID: 95363851632577578}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stone T Shape Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

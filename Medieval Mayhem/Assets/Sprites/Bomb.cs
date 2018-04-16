@@ -8,17 +8,20 @@ public class Bomb : MonoBehaviour
     
     [SerializeField] private Vector2 _maxVelocity;
     [SerializeField] private float _maxRotationSpeed;
-    [SerializeField] private AudioClip _castleExplodeSound;
     [SerializeField] private AudioClip _hitSound;
+    [SerializeField] private AudioClip _sfxTenseMusic;
 
     private AudioSource _audioSource;
+    
     private Rigidbody2D _rigidbody2D;
+    
 
     private void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
         _audioSource = GetComponent<AudioSource>();
-        //_audioSource.Play();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.Play(_sfxTenseMusic, 0.0f);
     }
     
     private void FixedUpdate()
@@ -38,14 +41,23 @@ public class Bomb : MonoBehaviour
         Debug.LogFormat("Angular velocity: ({0})", _rigidbody2D.angularVelocity);
     }
 
+    private void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.CompareTag(Castle.Tag))
+        {
+            for(int i = 0; i < 100; i++)
+                Debug.Log("IT IS DOING SOMETHING: " + collider2D.gameObject.tag);
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.Stop(0.0f);
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision2D)
     {
-        _audioSource.PlayOneShot(_hitSound);
-//        if (collision2D.gameObject.CompareTag(Castle.Tag))
-//        {
-//            //_audioSource.Stop();
-//            AudioSource.PlayClipAtPoint(_castleExplodeSound, Vector3.zero, 1.5f);
-//            Destroy(gameObject);
-//        }
+        if (collision2D.gameObject.layer != LayerMask.NameToLayer("Platforms"))
+        {
+            _audioSource.PlayOneShot(_hitSound);
+        }   
     }
 }

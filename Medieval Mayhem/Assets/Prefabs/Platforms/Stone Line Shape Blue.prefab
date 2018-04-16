@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114062127964174454}
   - component: {fileID: 114036375528175396}
   - component: {fileID: 95940241499268534}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Stone Line Shape Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

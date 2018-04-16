@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114805203225855684}
   - component: {fileID: 114016644342921752}
   - component: {fileID: 95753169135915096}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wood Cross Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

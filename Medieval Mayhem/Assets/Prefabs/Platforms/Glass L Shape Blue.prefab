@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114069033910479566}
   - component: {fileID: 114556259137851374}
   - component: {fileID: 95207380876929620}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Glass L Shape Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

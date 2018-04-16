@@ -19,9 +19,11 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 9c853cec6239ba988b75e82cd8b0e07d Assembly-CSharp.dll:.Rotatable
 f8b19b97900ca06b9c1ad0eec4014aa2 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerDown
+a105dd1329f8b7b615dd2c4775be1288 Assembly-CSharp.dll:.Cannon
 5e9f44c1107dcf3d279a2c1477862128 Assembly-CSharp.dll:.FadeManager
 8c366d0d93a4f5e45097ef40b35dd82a Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerLine
 514e0cc7a5950f5d8ed6200a8d943c6d Assembly-CSharp.dll:.PlatformVisualisation
+6cb42a2568f244521a0cee4b62d4e625 Assembly-CSharp.dll:.Castle
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -122,6 +124,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 701492ac0119a989b6eb42657413daad Assembly-CSharp.dll:.PlayButtonPressedEvent
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TextTask
 381ce6ca82673f74d791480ddfe87363 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerSwipe
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
@@ -133,7 +136,6 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 1c8dd658d11d135c3e3d3f0e7b6f73b6 Assembly-CSharp.dll:.StoneButtonPressedEvent
 e1f1285d86f3a1745afc7444b310fb42 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanPitchYaw
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:Lean.Touch.LeanOpenUrl
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.CameraMovement
 5783b5cb6e6d5bcc7df8ef9e6d5aada9 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanRotate
 7ec810183283b62dc22c3816aac72ddc Assembly-CSharp-firstpass.dll:Lean.Touch.LeanMultiTap
 72126ce50eae88cdb0f57a9a22ec8e5a Assembly-CSharp-firstpass.dll:Lean.Touch.LeanTranslateSmooth
@@ -146,7 +148,8 @@ a3db827b5e30a8710c782f3c9dcacf7a Assembly-CSharp-firstpass.dll:Exploder2D.Explod
 cdfaf50278ffe331afbae85b5af907a4 Assembly-CSharp.dll:.Scroll
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AudioManager
 e7f268767823a8cd19911699aa31f1ea Assembly-CSharp-firstpass.dll:Lean.Touch.LeanMultiTapInfo
-0aca99741f4bfb856f78f58888a3d417 Assembly-CSharp.dll:.GameManager
+1fbcd64b74eb2a54c1ac61f08aec9220 Assembly-CSharp.dll:.GameManager
+4dadf6bdc3d9cfe4478d31a1104182a1 Assembly-CSharp.dll:.MusicChanger
 91b36326f294b619937373da443e69b6 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanTouch
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -163,8 +166,11 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 45e45363fe7dc878132f009cf0d59b7e Assembly-CSharp-firstpass.dll:LetterboxCamera.ForceCameraRatio
+6248701ee6b70dda1c433c0ff52d1374 Assembly-CSharp.dll:.CloseButtonPressedEvent
+030cb1c68c46ac2e6e5b59c8c4a71a2f Assembly-CSharp.dll:.CannonManager
 6ad53a0b0e1b7bbd14016abad1dad63a Assembly-CSharp-firstpass.dll:Lean.Touch.LeanCameraMove
 8541d7031587c300b9ee1e20596fdfdc Assembly-CSharp.dll:.Draggable
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.NewBehaviourScript
 948d5cb73805af124e8dff5a54c906e7 Assembly-CSharp-firstpass.dll:Exploder2D.Exploder2DObject
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -185,12 +191,14 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 2c1c9ca24124d1c2f2663139ec0115f8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanCameraZoomSmooth
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Flag
 c23567de7068d554c905c20656a91b08 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanCameraMoveSmooth
 493c211ab85ec2db8c090d3ba6c0a013 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSelectableSpriteRendererColor
 e151305212b6d9dd07d68e464b461420 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerTap
 5f49a3ba79119aedd9a5931885dca9fb Assembly-CSharp-firstpass.dll:Lean.Touch.LeanCameraZoom
 685d4c83b4896c997314336557dd18df Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerTrail
 493c211ab85ec2db8c090d3ba6c0a013 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSelectableGraphicColor
+1d0469aba851245a9666eed0475a78f1 Assembly-CSharp.dll:.Bomb
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.MusicPlayer
 8fdde42f6912926b4eb5c2a2e3e91b59 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanTranslate
 5652388a27686e3b4c5bbff6e0e7c256 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerUp
@@ -199,7 +207,9 @@ b03e5ed3210ce3528381769f28cbac81 Assembly-CSharp-firstpass.dll:Exploder2D.HUDFPS
 d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSpawn
 1599adf36a90c6dd91987c85a00ee885 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerHeld
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp-firstpass.dll:Lean.Touch.LeanPitchYawSmooth
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraPanTask
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSelectableRendererColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:Exploder2D.Explodable2D
+6248701ee6b70dda1c433c0ff52d1374 Assembly-CSharp.dll:.HelpButtonPressedEvent
 bc7950bc02a3f9b92b8680b622cbb2ec Assembly-CSharp-firstpass.dll:Exploder2D.FragmentPool2D
 9d732c45cc38cc7536d6eb154ba28643 Assembly-CSharp.dll:.Loader

@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114894115541834244}
   - component: {fileID: 114211466149177522}
   - component: {fileID: 95400905813723128}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wood Line Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

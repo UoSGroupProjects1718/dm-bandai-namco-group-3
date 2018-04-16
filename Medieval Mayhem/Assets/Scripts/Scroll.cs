@@ -68,21 +68,25 @@ public class Scroll : MonoBehaviour
 
     public void HidePeak()
     {
+        GetComponent<AudioSource>().Play();
         _animator.SetInteger(AnimState, AnimStateRise);
     }
 
     public void DropdownPeak()
     {
+        GetComponent<AudioSource>().Play();
         _animator.SetInteger(AnimState, AnimStateFall);
     }
     
     public void Dropdown()
     {
+        GetComponent<AudioSource>().Play();
         _animator.SetInteger(AnimState, AnimStateFall);
     }
 
     public void Hide()
     {
+        GetComponent<AudioSource>().Play();
         _animator.SetInteger(AnimState, AnimStateRiseFully);
     }
 }

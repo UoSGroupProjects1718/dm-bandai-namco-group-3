@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114053245247386876}
   - component: {fileID: 114916594468762740}
   - component: {fileID: 95702176446323670}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wood T Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

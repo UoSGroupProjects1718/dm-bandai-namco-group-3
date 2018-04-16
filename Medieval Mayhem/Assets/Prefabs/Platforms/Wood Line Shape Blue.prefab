@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114930958789995294}
   - component: {fileID: 114878140508564038}
   - component: {fileID: 95422732275287338}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wood Line Shape Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

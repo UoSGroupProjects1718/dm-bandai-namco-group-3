@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Exploder2D
   - Bomb
+  - Castle
   layers:
   - Default
   - TransparentFX
@@ -20,12 +21,12 @@ TagManager:
   - Bomb
   - Cannon
   - Vertical Borders
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Platforms
+  - Borders
+  - Castles
+  - No Bounce
+  - No Bounce Ground
   - 
   - 
   - 

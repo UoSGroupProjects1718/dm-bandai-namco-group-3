@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 	private const float VolumeMin = 0.0f;
-	private const float VolumeMax = 1.0f;
+	private const float VolumeMax = 0.4f;
 	private const float FadeTimeDefault = 1.0f;
 
 	public static AudioManager Instance
@@ -48,8 +48,12 @@ public class AudioManager : MonoBehaviour
 			yield return null;
 
 		_isFading = true;
-				
-		if (desiredVolume < _audioSource.volume)
+
+		if (desiredVolume == VolumeMin && fadeTime == 0.0f)
+		{
+			_audioSource.volume = 0.0f;
+		}
+		else if (desiredVolume < _audioSource.volume)
 		{
 			while (_audioSource.volume > desiredVolume)
 			{

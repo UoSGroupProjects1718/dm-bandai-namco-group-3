@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 114107880378286642}
   - component: {fileID: 114160826815604352}
   - component: {fileID: 95714189369887136}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Glass Cross Shape Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}

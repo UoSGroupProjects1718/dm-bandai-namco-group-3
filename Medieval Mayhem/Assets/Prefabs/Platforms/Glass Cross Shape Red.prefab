@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114107880378286642}
   - component: {fileID: 114160826815604352}
   - component: {fileID: 95714189369887136}
+  - component: {fileID: 114222607165174516}
   m_Layer: 14
   m_Name: Glass Cross Shape Red
   m_TagString: Untagged
@@ -194,6 +195,17 @@ MonoBehaviour:
   _platformMaterial: {fileID: 114044155073459144, guid: 36f606b5692fd1f4d85b8a74c71203bd,
     type: 2}
   _physicalCollider: {fileID: 60605141036749054}
+--- !u!114 &114222607165174516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1678763533836990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114372597701475800
 MonoBehaviour:
   m_ObjectHideFlags: 1

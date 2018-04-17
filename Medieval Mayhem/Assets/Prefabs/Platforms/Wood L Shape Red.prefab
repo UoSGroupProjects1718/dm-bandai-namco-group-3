@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114717397069249164}
   - component: {fileID: 114466595821779110}
   - component: {fileID: 95735235941822740}
+  - component: {fileID: 114104033402230276}
   m_Layer: 14
   m_Name: Wood L Shape Red
   m_TagString: Untagged
@@ -122,6 +123,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114104033402230276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1586256367553278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114129798310580686
 MonoBehaviour:
   m_ObjectHideFlags: 1

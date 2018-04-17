@@ -53,7 +53,7 @@ public class Platform : MonoBehaviour
             }
       
             GameObject.Find("Scroll").GetComponent<Scroll>().HidePeak();
-            transform.parent = GameObject.Find("Placed Platforms").transform;
+            transform.parent = GameObject.Find("[ Placed Platforms ]").transform;
             BeenSorted = true;
         }
     }

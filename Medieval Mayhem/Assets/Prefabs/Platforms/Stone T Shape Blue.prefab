@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114386098333926476}
   - component: {fileID: 114950149521187004}
   - component: {fileID: 95363851632577578}
+  - component: {fileID: 114107163627634714}
   m_Layer: 14
   m_Name: Stone T Shape Blue
   m_TagString: Untagged
@@ -123,6 +124,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114107163627634714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410662135779168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114220173310853398
 MonoBehaviour:
   m_ObjectHideFlags: 1

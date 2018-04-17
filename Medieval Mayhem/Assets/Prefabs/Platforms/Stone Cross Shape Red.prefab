@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114734895812890916}
   - component: {fileID: 114360927151187548}
   - component: {fileID: 95321276244351360}
+  - component: {fileID: 114909915762973514}
   m_Layer: 14
   m_Name: Stone Cross Shape Red
   m_TagString: Untagged
@@ -269,6 +270,17 @@ MonoBehaviour:
     AngularVelocity: 1
     AngularVelocityVector: {x: 0, y: 1}
     RandomAngularVelocityVector: 1
+--- !u!114 &114909915762973514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023107197816596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212719798248106074
 SpriteRenderer:
   m_ObjectHideFlags: 1

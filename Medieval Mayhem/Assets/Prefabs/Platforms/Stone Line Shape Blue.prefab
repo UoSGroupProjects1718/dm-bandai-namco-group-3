@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114062127964174454}
   - component: {fileID: 114036375528175396}
   - component: {fileID: 95940241499268534}
+  - component: {fileID: 114556614955738296}
   m_Layer: 14
   m_Name: Stone Line Shape Blue
   m_TagString: Untagged
@@ -197,6 +198,17 @@ MonoBehaviour:
   AutoGetDefaultColor: 0
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   SelectedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+--- !u!114 &114556614955738296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262361035938978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114558351636760856
 MonoBehaviour:
   m_ObjectHideFlags: 1

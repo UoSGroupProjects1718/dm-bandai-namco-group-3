@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114666822078305932}
   - component: {fileID: 114855314837935218}
   - component: {fileID: 95648559221951450}
+  - component: {fileID: 114107459263048054}
   m_Layer: 14
   m_Name: Stone L Shape Blue
   m_TagString: Untagged
@@ -121,6 +122,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114107459263048054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903550780656498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114229047161582094
 MonoBehaviour:
   m_ObjectHideFlags: 1

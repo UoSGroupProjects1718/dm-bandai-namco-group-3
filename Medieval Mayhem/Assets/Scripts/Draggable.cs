@@ -17,12 +17,25 @@ public class Draggable : MonoBehaviour
 	public bool IsDraggable;
 	public bool BeenDragged;
 
-	private static int TopLayer = 1000;
+	private int _startingLayer;
+
+	private SpriteRenderer _spriteRenderer;
+
+	private void Start()
+	{
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+		_startingLayer = _spriteRenderer.sortingOrder;
+	}
 	
 	protected virtual void Update()
 	{
 		if (!IsDraggable || (RequiredSelectable != null && RequiredSelectable.IsSelected == false))
 			return;
+
+		if (BeenDragged)
+		{
+			GetComponent<SpriteRenderer>().sortingOrder = _startingLayer - 1;
+		}
 
 		var fingers = LeanTouch.GetFingers(IgnoreGuiFingers, RequiredFingerCount, RequiredSelectable);
 		var screenDelta = LeanGesture.GetScreenDelta(fingers);
@@ -32,11 +45,6 @@ public class Draggable : MonoBehaviour
 	
 	protected virtual void Translate(Vector2 screenDelta)
 	{
-		var spriteRenderer = GetComponent<SpriteRenderer>();
-		if (spriteRenderer != null)
-		{
-			spriteRenderer.sortingOrder = ++TopLayer;
-		}
 		transform.position = Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(transform.position) + (Vector3)screenDelta);
 		BeenDragged = true;
 	}

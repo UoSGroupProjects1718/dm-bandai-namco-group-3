@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using Exploder2D;
+using Lean.Touch;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -93,6 +94,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Flag _blueFlag2;
 
     [SerializeField] private AudioClip _sfxVictory;
+
+    [SerializeField] private LeanSelect _leanSelect;
 
     private bool gameActive;
 
@@ -209,7 +212,7 @@ public class GameManager : MonoBehaviour
         var txtFooter = gameObject.AddComponent<TextTask>();
         txtFooter.SetTextAndAnimator(_bottomText, _animBottomText);
         
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         
         // DISPLAY ROUND NUMBERS
 
@@ -235,14 +238,14 @@ public class GameManager : MonoBehaviour
         while (!txtFooter.IsComplete)
             yield return null;
         
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         
         txtHeading.ZoomOut();
         txtFooter.ZoomOut();
         while (!txtHeading.IsComplete && !txtFooter.IsComplete)
             yield return null;
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         
         // --- RED TEAM SETUP
         
@@ -300,7 +303,7 @@ public class GameManager : MonoBehaviour
         while (!txtFooter.IsComplete)
             yield return null;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         
         // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
         txtFooter.ZoomOut();
@@ -325,6 +328,8 @@ public class GameManager : MonoBehaviour
         _acknowledgementReceived = false;
         while (!_acknowledgementReceived)
             yield return null;
+        if (_leanSelect != null)
+            _leanSelect.DeselectAll();
         
         // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
         _animRedDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
@@ -393,7 +398,7 @@ public class GameManager : MonoBehaviour
         while (!txtFooter.IsComplete)
             yield return null;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         
         // ZOOM OUT THE BUILD YOUR DEFENCES TEXT
         txtFooter.ZoomOut();
@@ -418,6 +423,8 @@ public class GameManager : MonoBehaviour
         _acknowledgementReceived = false;
         while (!_acknowledgementReceived)
             yield return null;
+        if (_leanSelect != null)
+            _leanSelect.DeselectAll();
         
         // ZOOM OUT THE ACKNOWLEDGEMENT BUTTON
         _animBlueDoneButton.SetInteger(BtnAnimState, BtnAnimStateZoomOut);
@@ -443,7 +450,7 @@ public class GameManager : MonoBehaviour
             child.GetComponent<Exploder2DObject>().Explode();
         }
         
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.75f);
 
         if (_blueCastle.Exploded)
         {
@@ -478,7 +485,7 @@ public class GameManager : MonoBehaviour
             else
                 _redFlag2.Rise();
             
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(1.25f);
             
             // ZOOM OUT THE TEXT
             txtHeading.ZoomOut();
@@ -526,7 +533,7 @@ public class GameManager : MonoBehaviour
             else
                 _blueFlag2.Rise();
             
-            yield return new WaitForSeconds(2.0f);
+            yield return new WaitForSeconds(1.75f);
             
             // ZOOM OUT THE TEXT
             txtHeading.ZoomOut();
@@ -579,7 +586,7 @@ public class GameManager : MonoBehaviour
         }
         
         
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.25f);
         
         var transitionManager = Camera.main.GetComponent<TransitionManager>();
         transitionManager.PrepareSceneTransition(false);

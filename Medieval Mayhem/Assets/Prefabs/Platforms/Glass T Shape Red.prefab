@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114201297006932342}
   - component: {fileID: 114309021585619762}
   - component: {fileID: 95928663841195458}
+  - component: {fileID: 114832561258364546}
   m_Layer: 14
   m_Name: Glass T Shape Red
   m_TagString: Untagged
@@ -265,6 +266,17 @@ MonoBehaviour:
   RequiredSelectable: {fileID: 114185915454674274}
   IsDraggable: 1
   BeenDragged: 0
+--- !u!114 &114832561258364546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447208284056526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212751888309559778
 SpriteRenderer:
   m_ObjectHideFlags: 1

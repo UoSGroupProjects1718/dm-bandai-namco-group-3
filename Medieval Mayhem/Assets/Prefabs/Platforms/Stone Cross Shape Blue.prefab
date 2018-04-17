@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114055206782113774}
   - component: {fileID: 114221530276956646}
   - component: {fileID: 95073328513281524}
+  - component: {fileID: 114335241911921564}
   m_Layer: 14
   m_Name: Stone Cross Shape Blue
   m_TagString: Untagged
@@ -269,6 +270,17 @@ MonoBehaviour:
   AutoGetDefaultColor: 0
   DefaultColor: {r: 1, g: 1, b: 1, a: 1}
   SelectedColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+--- !u!114 &114335241911921564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761430993406778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212461226701386088
 SpriteRenderer:
   m_ObjectHideFlags: 1

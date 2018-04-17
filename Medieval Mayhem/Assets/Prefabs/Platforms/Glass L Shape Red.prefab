@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114286914032331750}
   - component: {fileID: 114607305267617740}
   - component: {fileID: 95926577706917000}
+  - component: {fileID: 114615755180552556}
   m_Layer: 14
   m_Name: Glass L Shape Red
   m_TagString: Untagged
@@ -246,6 +247,17 @@ MonoBehaviour:
   _platformMaterial: {fileID: 114044155073459144, guid: 36f606b5692fd1f4d85b8a74c71203bd,
     type: 2}
   _physicalCollider: {fileID: 60929867584211970}
+--- !u!114 &114615755180552556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024907926638668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114810564715276950
 MonoBehaviour:
   m_ObjectHideFlags: 1

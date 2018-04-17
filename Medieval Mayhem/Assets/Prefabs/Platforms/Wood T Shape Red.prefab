@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114053245247386876}
   - component: {fileID: 114916594468762740}
   - component: {fileID: 95702176446323670}
+  - component: {fileID: 114179982128577316}
   m_Layer: 14
   m_Name: Wood T Shape Red
   m_TagString: Untagged
@@ -138,6 +139,17 @@ MonoBehaviour:
   _platformMaterial: {fileID: 114774889788968686, guid: 729c239b5f6d24d4f90642a8a02f6d3c,
     type: 2}
   _physicalCollider: {fileID: 60333282356532676}
+--- !u!114 &114179982128577316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332907425567092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114259785774140480
 MonoBehaviour:
   m_ObjectHideFlags: 1

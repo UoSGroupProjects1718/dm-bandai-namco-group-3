@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114041883481603552}
   - component: {fileID: 114035517797562990}
   - component: {fileID: 95699254450090630}
+  - component: {fileID: 114502948486389878}
   m_Layer: 14
   m_Name: Glass Cross Shape Blue
   m_TagString: Untagged
@@ -211,6 +212,17 @@ MonoBehaviour:
   RotateAxis: {x: 0, y: 0, z: 1}
   Relative: 0
   IsRotatable: 1
+--- !u!114 &114502948486389878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046399490883430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114619774591016154
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114753066616935588}
   - component: {fileID: 114511507848969978}
   - component: {fileID: 95449244692516614}
+  - component: {fileID: 114023894979872068}
   m_Layer: 14
   m_Name: Stone L Shape Red
   m_TagString: Untagged
@@ -121,6 +122,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114023894979872068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676358637155580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114267187054474770
 MonoBehaviour:
   m_ObjectHideFlags: 1

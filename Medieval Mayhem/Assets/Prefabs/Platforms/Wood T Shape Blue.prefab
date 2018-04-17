@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114560949352226374}
   - component: {fileID: 114960989448298556}
   - component: {fileID: 95619877520504436}
+  - component: {fileID: 114065495237204278}
   m_Layer: 14
   m_Name: Wood T Shape Blue
   m_TagString: Untagged
@@ -124,6 +125,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114065495237204278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840823188595656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114163210865526980
 MonoBehaviour:
   m_ObjectHideFlags: 1

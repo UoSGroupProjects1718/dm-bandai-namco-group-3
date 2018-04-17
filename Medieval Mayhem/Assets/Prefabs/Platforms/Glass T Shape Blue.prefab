@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114140200473258156}
   - component: {fileID: 114835771390823162}
   - component: {fileID: 95677530293103162}
+  - component: {fileID: 114990954616727034}
   m_Layer: 14
   m_Name: Glass T Shape Blue
   m_TagString: Untagged
@@ -265,6 +266,17 @@ MonoBehaviour:
   _platformMaterial: {fileID: 114044155073459144, guid: 36f606b5692fd1f4d85b8a74c71203bd,
     type: 2}
   _physicalCollider: {fileID: 60217796136871132}
+--- !u!114 &114990954616727034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307033036247936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212091300867099512
 SpriteRenderer:
   m_ObjectHideFlags: 1

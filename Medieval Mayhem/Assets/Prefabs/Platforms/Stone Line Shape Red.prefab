@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114418911550765254}
   - component: {fileID: 114307174106149078}
   - component: {fileID: 95557756359797030}
+  - component: {fileID: 114695782000815722}
   m_Layer: 14
   m_Name: Stone Line Shape Red
   m_TagString: Untagged
@@ -258,6 +259,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isSelected: 0
+--- !u!114 &114695782000815722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300880509974180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212297755956239804
 SpriteRenderer:
   m_ObjectHideFlags: 1

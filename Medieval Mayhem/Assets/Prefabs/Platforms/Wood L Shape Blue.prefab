@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114826756614288564}
   - component: {fileID: 114237066473913848}
   - component: {fileID: 95163944986692098}
+  - component: {fileID: 114656712151017820}
   m_Layer: 14
   m_Name: Wood L Shape Blue
   m_TagString: Untagged
@@ -170,6 +171,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isSelected: 0
+--- !u!114 &114656712151017820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960459751850590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114734811442261778
 MonoBehaviour:
   m_ObjectHideFlags: 1

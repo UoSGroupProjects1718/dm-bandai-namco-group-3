@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114837502648040374}
   - component: {fileID: 114576882875392370}
   - component: {fileID: 95515414083642934}
+  - component: {fileID: 114163643407564080}
   m_Layer: 14
   m_Name: Glass Line Shape Red
   m_TagString: Untagged
@@ -144,6 +145,17 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isSelected: 0
+--- !u!114 &114163643407564080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294555503012904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a59d5fcafdafe46981b1de289799eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114407477777514050
 MonoBehaviour:
   m_ObjectHideFlags: 1

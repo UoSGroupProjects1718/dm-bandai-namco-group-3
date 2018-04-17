@@ -134,6 +134,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 1c8dd658d11d135c3e3d3f0e7b6f73b6 Assembly-CSharp.dll:.StoneButtonPressedEvent
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OOBArea
 e1f1285d86f3a1745afc7444b310fb42 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanPitchYaw
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:Lean.Touch.LeanOpenUrl
 5783b5cb6e6d5bcc7df8ef9e6d5aada9 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanRotate
@@ -207,6 +208,7 @@ b03e5ed3210ce3528381769f28cbac81 Assembly-CSharp-firstpass.dll:Exploder2D.HUDFPS
 d49c4dceabcd0f316458072a477aeae8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSpawn
 1599adf36a90c6dd91987c85a00ee885 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanFingerHeld
 05012a5c4e5496c7da7c6bf88a0eb92a Assembly-CSharp-firstpass.dll:Lean.Touch.LeanPitchYawSmooth
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlatformOOB
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraPanTask
 c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSelectableRendererColor
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:Exploder2D.Explodable2D
@@ -214,5 +216,3 @@ c7b4e1cefa38e05c60ad69dee88481d8 Assembly-CSharp-firstpass.dll:Lean.Touch.LeanSe
 6248701ee6b70dda1c433c0ff52d1374 Assembly-CSharp.dll:.HelpButtonPressedEvent
 bc7950bc02a3f9b92b8680b622cbb2ec Assembly-CSharp-firstpass.dll:Exploder2D.FragmentPool2D
 9d732c45cc38cc7536d6eb154ba28643 Assembly-CSharp.dll:.Loader
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlatformOOB
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.OOBArea
